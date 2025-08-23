@@ -7,7 +7,7 @@ headers={
         'authorization':API_KEY_ASSEMBLYAI
 }
 filename=sys.argv[1]
-def upload():
+def upload(filename):
     def read_file(filename, chunk_size=5242880):
         with open(filename,"rb") as _file:
             while True:
@@ -24,16 +24,29 @@ def upload():
 
     audio_url=upload_response.json()['upload_url']
     return audio_url
-audio_url=upload()
-json={'audio_url':audio_url}
-def transcribe():
+def transcribe(audio_url):
+    json={'audio_url':audio_url}
     transcript_response=requests.post(transcript_endpoint,
                         json=json,headers=headers)
     job_id=transcript_response.json()['id']
+    return job_id
 
+
+def poll(filename):
+    audio_url=upload(filename)
+    job_id=transcribe(audio_url=audio_url)
+    # print(job_id)
+    polling_endpoint=f"https://api.assemblyai.com/v2/transcript/{job_id}"
+    response=requests.get(polling_endpoint,headers=headers)
+    return response.json()
+# response=requests.get(polling_endpoint,headers=headers)
 # We upload the audio file and then look on the assembly ai's site whether it is ready or not - make pool requests
 # poll
-
-
-
-
+def get_transcription_results_url(filename):
+    while True:
+        data=poll(filename=filename)
+        if data['status']=="completed":
+            return data['text']
+        elif data['status']=='error':
+            return data, data["error"]
+print(get_transcription_results_url(filename=filename))
