@@ -9,4 +9,5 @@ dependencies = [
     "numpy>=2.3.2",
     "pandas>=2.3.2",
     "pyaudio>=0.2.14",
+    "pydub>=0.25.1",
 ]

@@ -11,6 +11,7 @@ dependencies = [
     { name = "numpy" },
     { name = "pandas" },
     { name = "pyaudio" },
+    { name = "pydub" },
 ]
 
 [package.metadata]
@@ -19,6 +20,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.3.2" },
     { name = "pandas", specifier = ">=2.3.2" },
     { name = "pyaudio", specifier = ">=0.2.14" },
+    { name = "pydub", specifier = ">=0.25.1" },
 ]
 
 [[package]]
@@ -375,6 +377,15 @@ sdist = { url = "https://files.pythonhosted.org/packages/26/1d/8878c7752febb0f67
 wheels = [
     { url = "https://files.pythonhosted.org/packages/3a/77/66cd37111a87c1589b63524f3d3c848011d21ca97828422c7fde7665ff0d/PyAudio-0.2.14-cp313-cp313-win32.whl", hash = "sha256:95328285b4dab57ea8c52a4a996cb52be6d629353315be5bfda403d15932a497", size = 150982, upload-time = "2024-11-20T19:12:12.404Z" },
     { url = "https://files.pythonhosted.org/packages/a5/8b/7f9a061c1cc2b230f9ac02a6003fcd14c85ce1828013aecbaf45aa988d20/PyAudio-0.2.14-cp313-cp313-win_amd64.whl", hash = "sha256:692d8c1446f52ed2662120bcd9ddcb5aa2b71f38bda31e58b19fb4672fffba69", size = 173655, upload-time = "2024-11-20T19:12:13.616Z" },
+]
+
+[[package]]
+name = "pydub"
+version = "0.25.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fe/9a/e6bca0eed82db26562c73b5076539a4a08d3cffd19c3cc5913a3e61145fd/pydub-0.25.1.tar.gz", hash = "sha256:980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f", size = 38326, upload-time = "2021-03-10T02:09:54.659Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl", hash = "sha256:65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6", size = 32327, upload-time = "2021-03-10T02:09:53.503Z" },
 ]
 
 [[package]]
